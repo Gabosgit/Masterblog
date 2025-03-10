@@ -7,20 +7,65 @@
   "servers": [{ "url": "http://localhost:5001" }],
   "tags": [{ "name": "Post", "description": "Post API - CRUD" }],
 
-   "paths": {
-        "/api/posts": {
-            "get": {
+  "paths": {
+    "/api/posts": {
+      "get": {
         "summary": "Returns all posts",
         "produces": ["application/json"],
-        "tags": ["Post"],
+        "tags": ["Posts"],
         "responses": {
           "200": {
             "description": "Successful operation"
           }
         }
       },
+      "post": {
+        "summary": "Add a new post with a auto generated ID",
+        "produces": ["application/json"],
+        "tags": ["Posts"],
+        "responses": {
+          "201": {
+            "description": "Return a json dictionary with the post data."
+          }
         }
+      },
+      "delete": {
+        "summary": "Delete post by ID",
+        "produces": ["application/json"],
+        "tags": ["Posts"],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },"404": {
+            "description": "Post was not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update titel and/or content",
+        "produces": ["application/json"],
+        "tags": ["Posts"],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },"404": {
+            "description": "Post was not found"
+          }
+        }
+      }
+    },
+    "/api/posts/search": {
+      "get": {
+        "summary": "Search post matching a given key word in titel or content variable",
+        "produces": ["application/json"],
+        "tags": ["Search"],
+        "responses": {
+          "": {
+            "description": ""
+          }
+        }
+      }
     }
-
+  }
 }
 
